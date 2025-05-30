@@ -5,7 +5,9 @@ import DropDown from "../nav/DropDown";
 import { RootState } from "../../store";
 
 const Search = () => {
-  const products = useSelector((state: RootState) => state.products.items);
+  const products = useSelector(
+    (state: RootState) => state.products.items || [],
+  );
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
@@ -16,7 +18,7 @@ const Search = () => {
     setQuery(value);
 
     if (value.trim()) {
-      const filtered = products.filter((item) =>
+      const filtered = (products || []).filter((item) =>
         item.title.toLowerCase().includes(value.toLowerCase()),
       );
       setResults(filtered);
