@@ -22,7 +22,7 @@ const ProductsList = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (products.length === 0) {
+    if (!products || products.length === 0) {
       dispatch(fetchProducts());
     }
   }, [dispatch, products.length]);
