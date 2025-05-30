@@ -15,7 +15,7 @@ export interface ICartItems {
 }
 
 export interface ICartState {
-  readonly items: Record<string | number, ICartInfo>;
+  readonly items: Record<string, ICartInfo>;
 }
 
 /**
