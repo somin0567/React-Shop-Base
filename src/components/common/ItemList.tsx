@@ -38,9 +38,9 @@ const ItemList = ({
   if (loading) return <ProductsLoad limit={skeletonLimit} />;
 
   const filterCategories = categoryMap[category];
-  const filtered = (products || []).filter((item) =>
-    filterCategories.includes(item.category),
-  );
+  const filtered = Array.isArray(products)
+  ? products.filter((item) => filterCategories.includes(item.category))
+  : [];
   const items = typeof limit === "number" ? filtered.slice(0, limit) : filtered;
 
   const gridClass = scrollable
