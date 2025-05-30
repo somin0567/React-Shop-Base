@@ -8,7 +8,7 @@ import ProductsViewLoad from "./ProductsViewLoad";
 import { cartState, addToCart } from "../../store/cart";
 import { useRecoilState } from "recoil";
 
-const ProductsList = () => {
+const ProductsList = (): JSX.Element => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
   const { items: products, loading } = useSelector(
@@ -39,6 +39,8 @@ const ProductsList = () => {
       />
     );
   }
+
+  return <></>;
 };
 
 export default ProductsList;
